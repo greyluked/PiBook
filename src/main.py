@@ -4,6 +4,7 @@ Event-driven e-ink reader for Raspberry Pi
 PORTABILITY: 100% portable between Pi 3B+ and Pi Zero 2 W
 """
 
+import getpass
 import sys
 import os
 import logging
@@ -322,7 +323,8 @@ class PiBookApp:
             self._log_cpu_voltage()
 
             # Load library
-            books_dir = self.config.get('library.books_directory', '/home/pi/PiBook/books')
+            current_user = getpass.getuser()
+            books_dir = self.config.get('library.books_directory', f'/home/{current_user}/PiBook/books')
             self.library_screen.load_books(books_dir)
 
             # Start web server
