@@ -10,7 +10,7 @@ display:
   full_refresh_interval: 10   # Full refresh every N page turns (higher = more battery savings)
 
 library:
-  books_directory: "/home/pi/PiBook/books"
+  books_directory: "/home/${USER}/PiBook/books"
   items_per_page: 4               # Reduced to 4 for larger covers (100x150)
   font_size: 20               # For library menu rendering only
 
@@ -24,10 +24,14 @@ performance:
   preload_next_page: false    # Disabled for battery savings
 
 logging:
-  level: "DEBUG"              # Changed from WARNING for troubleshooting
-  file: "/home/pi/PiBook/logs/pibook.log"  # Persistent log file (not /tmp)
-  console: true               # Enable console output for debugging
-  max_size: "10MB"            # Increased from 1MB for more history
+  level: "DEBUG"              # Changed from WARNING for troubleshooting
+
+  file: "/home/${USER}/PiBook/logs/pibook.log"  # Persistent log file (not /tmp)
+
+  console: true               # Enable console output for debugging
+
+  max_size: "10MB"            # Increased from 1MB for more history
+
 
 web:
   port: 5000                  # Web interface port
